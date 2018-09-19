@@ -26,7 +26,7 @@ const store = createStoreWithMiddlewares(persistedReducer, initialState,
 
 const persistor = persistStore(store)
 
-export { 
+export {
   store,
   persistor,
   history

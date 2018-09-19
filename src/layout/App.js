@@ -4,12 +4,12 @@ import { ConnectedRouter } from 'react-router-redux'
 import { Switch } from 'react-router'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import { store, persistor, history } from '../main/config/store'
-import { default as Shell } from './Shell'
+import { store, persistor, history } from '../config/store'
+import { default as Shell } from '../config/Shell'
 
 const App = () => (
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={<div />} persistor={persistor}>
       <ConnectedRouter history={history}>
         <Switch>
           <Shell />

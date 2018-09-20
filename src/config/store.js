@@ -1,33 +1,24 @@
 import { createStore, compose, applyMiddleware } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { routerMiddleware, connectRouter } from 'connected-react-router'
 
+import history from './history'
 import reducer from './rootReducer'
 
 const initialState = { }
-const history = createHistory()
 
 const createStoreWithMiddlewares = compose(
   applyMiddleware(routerMiddleware(history))
 )(createStore)
 
-const persistConfig = {
-  key: 'root',
-  storage,
-}
+const reducerWithRouter = connectRouter(history)(reducer)
 
-const persistedReducer = persistReducer(persistConfig, reducer)
-
-const store = createStoreWithMiddlewares(persistedReducer, initialState,
+const store = createStoreWithMiddlewares(
+  reducerWithRouter, 
+  initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-const persistor = persistStore(store)
-
 export {
   store,
-  persistor,
   history
 }

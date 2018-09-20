@@ -4,7 +4,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import { Switch } from 'react-router'
 
 import { store, history } from '../config/store'
-import { default as Shell } from '../config/Shell'
+import { default as Shell } from './Shell'
 
 const App = () => (
   <Provider store={store}>

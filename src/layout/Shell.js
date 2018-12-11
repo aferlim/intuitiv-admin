@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const Shell = (props) => (
     <div>
         <Nav />
-        <h1>Shell</h1>
+        <h1>Shell test</h1>
+        <Link to="/" className="nav-link">Home</Link>
         <Link to="/dashboard" className="nav-link">Dashboard</Link>
         <Routes />
     </div>

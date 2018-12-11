@@ -27,8 +27,8 @@ const Nav = () => (
   </nav>
 )
 
-Nav.propTypes = {
-  test: PropTypes.bool.isRequired
-}
+// Nav.propTypes = {
+//   test: PropTypes.bool.isRequired
+// }
 
 export default Nav
